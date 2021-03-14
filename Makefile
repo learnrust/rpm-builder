@@ -11,6 +11,7 @@ package: build_linux build
 		--version ${VERSION} \
 		--release ${RELEASE} \
 		--compression gzip \
+		--desc    "Description 01"        \
 		rpm-builder
 install:
 	sudo yum localinstall rpm-builder.rpm -y
