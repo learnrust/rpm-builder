@@ -1,3 +1,4 @@
+# rustup target add x86_64-unknown-linux-musl
 build:
 	cargo build --release
 build_linux: src/main.rs
@@ -11,3 +12,10 @@ package: build_linux build
 		--release ${RELEASE} \
 		--compression gzip \
 		rpm-builder
+install:
+	sudo yum localinstall rpm-builder.rpm -y
+
+remove:
+	sudo yum remove rpm-builder -y
+commit:
+	git commit -a -m"lazy comment" && git push
